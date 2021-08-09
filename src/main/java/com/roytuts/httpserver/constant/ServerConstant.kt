@@ -1,0 +1,51 @@
+package com.roytuts.httpserver.constant
+
+object ServerConstant {
+    const val FORWARD_SINGLE_SLASH = "/"
+    const val FORWARD_DOUBLE_SLASH = "//"
+    const val WEBAPP_DIR = "webapp"
+    const val DEFAULT_HOST = "localhost"
+    const val DEFAULT_PORT = 8000
+    const val APPLICATION_OCTET_STREAM = "application/octet-stream"
+    const val TEXT_PLAIN = "text/plain; charset=utf-8"
+    const val CONTENT_TYPE = "Content-Type"
+    const val CONTENT_LENGTH = "Content-Length"
+    const val CONTENT_ENCODING = "Content-Encoding"
+    const val ENCODING_GZIP = "gzip"
+    const val ENCODING_UTF8 = "UTF-8"
+    val MIME_MAP: MutableMap<String?, String?> = HashMap()
+
+    init {
+        MIME_MAP["appcache"] = "text/cache-manifest"
+        MIME_MAP["css"] = "text/css"
+        MIME_MAP["asc"] = "text/plain"
+        MIME_MAP["gif"] = "image/gif"
+        MIME_MAP["htm"] = "text/html"
+        MIME_MAP["html"] = "text/html"
+        MIME_MAP["java"] = "text/x-java-source"
+        MIME_MAP["js"] = "application/javascript"
+        MIME_MAP["json"] = "application/json"
+        MIME_MAP["jpg"] = "image/jpeg"
+        MIME_MAP["jpeg"] = "image/jpeg"
+        MIME_MAP["mp3"] = "audio/mpeg"
+        MIME_MAP["mp4"] = "video/mp4"
+        MIME_MAP["m3u"] = "audio/mpeg-url"
+        MIME_MAP["ogv"] = "video/ogg"
+        MIME_MAP["flv"] = "video/x-flv"
+        MIME_MAP["mov"] = "video/quicktime"
+        MIME_MAP["swf"] = "application/x-shockwave-flash"
+        MIME_MAP["pdf"] = "application/pdf"
+        MIME_MAP["doc"] = "application/msword"
+        MIME_MAP["ogg"] = "application/x-ogg"
+        MIME_MAP["png"] = "image/png"
+        MIME_MAP["svg"] = "image/svg+xml"
+        MIME_MAP["xlsm"] = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        MIME_MAP["xml"] = "application/xml"
+        MIME_MAP["zip"] = "application/zip"
+        MIME_MAP["m3u8"] = "application/vnd.apple.mpegurl"
+        MIME_MAP["md"] = "text/plain"
+        MIME_MAP["txt"] = "text/plain"
+        MIME_MAP["php"] = "text/plain"
+        MIME_MAP["ts"] = "video/mp2t"
+    }
+}

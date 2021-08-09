@@ -1,11 +1,28 @@
 # Compiled class file
 *.class
 
+# Generated files
+bin/
+gen/
+out/
+# Gradle files
+.gradle/
+build/
 # Log file
 *.log
 
 # BlueJ files
 *.ctxt
+# IntelliJ
+*.iml
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/gradle.xml
+.idea/assetWizardSettings.xml
+.idea/dictionaries
+.idea/libraries
+.idea/caches
+
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/

@@ -1,0 +1,349 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>
+
+</title>
+    <style type="text/css">
+        body {
+            font-family: Microsoft JhengHei,Courier New;
+            font-size: 24px;
+            background-color: white;
+        }
+
+        .tableALL {
+            width: 85%;
+            background-color: white;
+            height: 40px;
+        }
+
+        .tabletitleR {
+            font-weight: bold;
+            background-color: #f2dede;
+            color: #333333;
+            height: 50px;
+        }
+
+        .tabletitleG {
+            font-weight: bold;
+            background-color: #dff0d8;
+            color: #333333;
+            height: 40px;
+        }
+
+        .tabletitleY {
+            font-weight: bold;
+            background-color: #fcf8e3;
+            color: #bdaa85;
+            height: 40px;
+            text-align: left;
+            padding-left: 10px;
+        }
+
+        .tdfrist {
+            padding-left: 10px;
+            width: 20%;
+            height: 55px;
+        }
+
+        .tdbottom {
+            padding-left: 10px;
+            height: 60px;
+        }
+
+        .buttonstyle {
+            border-radius: 4px;
+            background-color: #3D7878;
+            color: white;
+            border: none;
+            text-align: center;
+            text-decoration: none;
+            transition-duration: 0.4s;
+        }
+
+            .buttonstyle:hover {
+                background-color: #C4E1E1;
+                color: #2D5353;
+            }
+
+        .buttonstyleR {
+            border-radius: 4px;
+            background-color: #E64C4C;
+            color: white;
+            border: none;
+            text-align: center;
+            text-decoration: none;
+            transition-duration: 0.4s;
+        }
+
+            .buttonstyleR:hover {
+                background-color: #FEE6E6;
+                color: #C11010;
+            }
+
+        .imgstyle {
+            padding-left: 10px;
+        }
+    </style>
+
+    <script type="text/javascript"> setTimeout("location.href= window.location.href", 900000) </script>
+</head>
+<body>
+    <form method="post" action="./" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="6DBE2D0D" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="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" />
+</div>
+        <div>
+            <img id="Image1" class="imgstyle" src="images/backlogo.jpg" />
+            <div id="Reg1Panel" style="padding-left: 2%;">
+	
+                <h2>Covid19疫苗餘量預約<br />
+                </h2>
+                <h3>• 1. 自當日16:00開放網路登記，結束時間為17:00或至20人登記額滿為止。<br />
+                    • 2. 本院每日彙整餘針殘餘量，最多只有5劑，且不一定有餘針，敬請見諒。<br />
+                    • 3. 接種年齡需為18歲(含)以上(民國92年以上)，且以第1-10類人員優先。<br />
+                    • 4. 通知流程：<br />
+                    16:00開放網路登記，最多20名 (建議離本院15分鐘車程內等候)。<br />
+                    17:00確認餘針並依序以電話通知，電話3次未接視同放棄。<br />
+                    17:30前未接獲通知表示當日無法施打，請擇日再重新登記。<br />
+                    18:30 以前到院完成接種 (逾時視同放棄)。<br />
+                    ※報到地點:新店耕莘A棟1樓注射室<br />
+                    ※於此網頁填寫之資訊僅供COVID-19疫苗餘量預約接種候補登記使用。<br />
+                    ※其餘詳細資訊請見官網。<br />
+                </h3>
+                
+                <hr />
+                <div id="BasicPanel">
+		
+                    <table class="tableALL">
+
+                        <tr>
+                            <td class="tdfrist">姓名：</td>
+                            <td>
+                                <input name="nameTxt" type="text" id="nameTxt" style="font-family:微軟正黑體;font-size:24px;" />
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="tdfrist">性別：</td>
+                            <td>
+                                <input id="sexradiobtn1" type="radio" name="sex" value="sexradiobtn1" /><label for="sexradiobtn1">男</label>
+                                &nbsp;<input id="sexradiobtn2" type="radio" name="sex" value="sexradiobtn2" /><label for="sexradiobtn2">女</label>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="tdfrist">證件類別：</td>
+                            <td>
+                                <select name="id_typedpList" id="id_typedpList" style="font-size:20px;height:28px;">
+			<option value="0">:請選擇:</option>
+			<option value="身分證">身分證</option>
+			<option value="居留證">居留證</option>
+			<option value="護照">護照</option>
+
+		</select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tdfrist">證件字號：</td>
+                            <td>
+                                <input name="id_noTxt" type="text" id="id_noTxt" style="font-family:微軟正黑體;font-size:24px;" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tdfrist">生日：</td>
+                            <td>民國
+                            <select name="YeardpList_28" id="YeardpList_28" style="font-size:20px;height:28px;">
+			<option value="0">:請選擇:</option>
+			<option value="10">10</option>
+			<option value="11">11</option>
+			<option value="12">12</option>
+			<option value="13">13</option>
+			<option value="14">14</option>
+			<option value="15">15</option>
+			<option value="16">16</option>
+			<option value="17">17</option>
+			<option value="18">18</option>
+			<option value="19">19</option>
+			<option value="20">20</option>
+			<option value="21">21</option>
+			<option value="22">22</option>
+			<option value="23">23</option>
+			<option value="24">24</option>
+			<option value="25">25</option>
+			<option value="26">26</option>
+			<option value="27">27</option>
+			<option value="28">28</option>
+			<option value="29">29</option>
+			<option value="30">30</option>
+			<option value="31">31</option>
+			<option value="32">32</option>
+			<option value="33">33</option>
+			<option value="34">34</option>
+			<option value="35">35</option>
+			<option value="36">36</option>
+			<option value="37">37</option>
+			<option value="38">38</option>
+			<option value="39">39</option>
+			<option value="40">40</option>
+			<option value="41">41</option>
+			<option value="42">42</option>
+			<option value="43">43</option>
+			<option value="44">44</option>
+			<option value="45">45</option>
+			<option value="46">46</option>
+			<option value="47">47</option>
+			<option value="48">48</option>
+			<option value="49">49</option>
+			<option value="50">50</option>
+			<option value="51">51</option>
+			<option value="52">52</option>
+			<option value="53">53</option>
+			<option value="54">54</option>
+			<option value="55">55</option>
+			<option value="56">56</option>
+			<option value="57">57</option>
+			<option value="58">58</option>
+			<option value="59">59</option>
+			<option value="60">60</option>
+			<option value="61">61</option>
+			<option value="62">62</option>
+			<option value="63">63</option>
+			<option value="64">64</option>
+			<option value="65">65</option>
+			<option value="66">66</option>
+			<option value="67">67</option>
+			<option value="68">68</option>
+			<option value="69">69</option>
+			<option value="70">70</option>
+			<option value="71">71</option>
+			<option value="72">72</option>
+			<option value="73">73</option>
+			<option value="74">74</option>
+			<option value="75">75</option>
+			<option value="76">76</option>
+			<option value="77">77</option>
+			<option value="78">78</option>
+			<option value="79">79</option>
+			<option value="80">80</option>
+			<option value="81">81</option>
+			<option value="82">82</option>
+			<option value="83">83</option>
+			<option value="84">84</option>
+			<option value="85">85</option>
+			<option value="86">86</option>
+			<option value="87">87</option>
+			<option value="88">88</option>
+			<option value="89">89</option>
+			<option value="90">90</option>
+			<option value="91">91</option>
+			<option value="92">92</option>
+			<option value="93">93</option>
+			<option value="94">94</option>
+			<option value="95">95</option>
+			<option value="96">96</option>
+			<option value="97">97</option>
+			<option value="98">98</option>
+			<option value="99">99</option>
+			<option value="100">100</option>
+
+		</select>
+                                &nbsp;年
+                            <select name="MonthdpList_54" id="MonthdpList_54" style="font-size:20px;height:28px;">
+			<option value="0">:請選擇:</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+			<option value="11">11</option>
+			<option value="12">12</option>
+
+		</select>
+                                &nbsp;月
+                            <select name="DaydpList_68" id="DaydpList_68" style="font-size:20px;height:28px;">
+			<option value="0">:請選擇:</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+			<option value="11">11</option>
+			<option value="12">12</option>
+			<option value="13">13</option>
+			<option value="14">14</option>
+			<option value="15">15</option>
+			<option value="16">16</option>
+			<option value="17">17</option>
+			<option value="18">18</option>
+			<option value="19">19</option>
+			<option value="20">20</option>
+			<option value="21">21</option>
+			<option value="22">22</option>
+			<option value="23">23</option>
+			<option value="24">24</option>
+			<option value="25">25</option>
+			<option value="26">26</option>
+			<option value="27">27</option>
+			<option value="28">28</option>
+			<option value="29">29</option>
+			<option value="30">30</option>
+			<option value="31">31</option>
+
+		</select>
+                                &nbsp;日</td>
+                        </tr>
+                        <tr>
+                            <td class="tdfrist">聯絡電話：</td>
+                            <td>
+                                <input name="phoneTxt" type="text" id="phoneTxt" style="font-family:微軟正黑體;font-size:24px;" />
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="tdfrist">輸入驗證碼：</td>
+                            <td>
+                                <img height="50" src="https://webreg.cth.org.tw/Covid19VaccineResidue/CheckImageCode.aspx">
+                                <input name="chknumTxt" type="text" id="chknumTxt" style="font-family:微軟正黑體;font-size:24px;" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tdbottom"></td>
+                            <td>
+                                <input type="submit" name="Button1" value="確認預約" id="Button1" class="buttonstyle" style="font-family:微軟正黑體;font-size:24px;" />
+                            </td>
+                        </tr>
+                    </table>
+                    <br />
+                
+	</div>
+            
+</div>
+            <br />
+            
+        </div>
+        <br />
+
+        <br />
+        <br />
+    </form>
+</body>
+</html>
