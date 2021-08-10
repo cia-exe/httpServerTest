@@ -11,6 +11,7 @@ import java.lang.IllegalStateException
 import java.util.HashMap
 import java.util.logging.Logger
 import java.util.zip.GZIPOutputStream
+import kotlin.random.Random
 
 class ServerResourceHandler(pathToRoot: String, private val gzippable: Boolean, private val cacheable: Boolean) :
     HttpHandler {
@@ -21,7 +22,7 @@ class ServerResourceHandler(pathToRoot: String, private val gzippable: Boolean, 
     @Throws(IOException::class)
     override fun handle(httpExchange: HttpExchange) {
         val requestPath = httpExchange.requestURI.path
-        LOGGER.info("Requested Path: $requestPath")
+        //LOGGER.info("Requested Path: $requestPath")
         serveResource(httpExchange, requestPath)
     }
 
@@ -56,17 +57,30 @@ class ServerResourceHandler(pathToRoot: String, private val gzippable: Boolean, 
 
     @Throws(IOException::class)
     private fun serveResource(httpExchange: HttpExchange, requestPath: String) {
+
+        var t = System.currentTimeMillis() / 1000 % 60
+        val reqTime = t
+
         val reqPath = requestPath.substring(1).run {
 
             if (isEmpty()) {
-                val t = System.currentTimeMillis() / 1000 % 60
-                LOGGER.info("t sec: $t")
 
-                if (t >= 59 || t < 5) Thread.sleep(3000)
+
+                if (t >= 58 || t < 5) {
+                    Thread.sleep((3000..5000).random().toLong())
+                    t = System.currentTimeMillis() / 1000 % 60 // update t after sleep
+                }
+
                 if (t in 0..9) "index.html" else "closed.html"
             } else replace(ServerConstant.FORWARD_DOUBLE_SLASH, ServerConstant.FORWARD_SINGLE_SLASH)
         }
 
+        val now = t
+        val tStr = if (reqTime == now) "request and process:$reqTime"
+        else "request:$reqTime, process:$now"
+
+
+        LOGGER.info("Requested Path: $requestPath, $tStr")
         serveFile(httpExchange, pathToRoot + reqPath)
     }
 
