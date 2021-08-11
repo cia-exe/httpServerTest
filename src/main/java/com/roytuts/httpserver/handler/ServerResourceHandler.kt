@@ -65,13 +65,12 @@ class ServerResourceHandler(pathToRoot: String, private val gzippable: Boolean, 
 
             if (isEmpty()) {
 
-
-                if (t >= 58 || t < 5) {
-                    Thread.sleep((3000..5000).random().toLong())
+                if (t >= 55 || t <= 3) {
+                    Thread.sleep((3000..6000).random().toLong())
                     t = System.currentTimeMillis() / 1000 % 60 // update t after sleep
                 }
 
-                if (t in 0..9) "index.html" else "closed.html"
+                if (t in 0..4) "index.html" else "closed.html"
             } else replace(ServerConstant.FORWARD_DOUBLE_SLASH, ServerConstant.FORWARD_SINGLE_SLASH)
         }
 
