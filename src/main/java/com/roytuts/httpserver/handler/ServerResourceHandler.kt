@@ -56,9 +56,13 @@ class ServerResourceHandler(pathToRoot: String, private val gzippable: Boolean, 
     }
 
     @Throws(IOException::class)
-    private fun serveResource(httpExchange: HttpExchange, requestPath: String) {
+    private fun serveResource(httpExchange: HttpExchange, requestPath0: String) {
+
+        // http://localhost:9900/xxxxx/
+        val requestPath = requestPath0.replace("xxxxx/", "", true)
 
         val tid = Thread.currentThread().id
+        //LOGGER.info("($tid)Requested Path: $requestPath")
 
         var now = System.currentTimeMillis() % 60000
         val reqTime = now
@@ -70,8 +74,8 @@ class ServerResourceHandler(pathToRoot: String, private val gzippable: Boolean, 
         //LOGGER.info("($tid)isHtml: $isHtml")
 
         if (isHtml) {
-            LOGGER.info("($tid)Requested: $reqTime")
-            if (reqTime >= 56000 || reqTime <= 3000) {
+            //LOGGER.info("($tid)Requested: ${reqTime / 1000.0f}")
+            if (reqTime >= 57000 || reqTime <= 3000) {
                 //Thread.sleep((3000L..6000L).random())
                 Thread.sleep(3000)
                 now = System.currentTimeMillis() % 60000 // update now after sleep
@@ -89,6 +93,11 @@ class ServerResourceHandler(pathToRoot: String, private val gzippable: Boolean, 
 
         // After Testing. For the same URL, the browser will send the request after the previous request is done!!!
         // But different URLs will be sent in parallel at the same time.
+        // Because the windows file system is not case sensitive.
+        //
+        // The browser will treat URLs with different capitalization as different URLs
+        // , but they are actually the same directory on the Windows server.
+        // e.g: http://localhost:9900/xxxxx/ & http://localhost:9900/Xxxxx/
         if (isHtml)
             LOGGER.info("($tid)Requested Path: $requestPath, $tStr")
 
