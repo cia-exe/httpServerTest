@@ -58,28 +58,40 @@ class ServerResourceHandler(pathToRoot: String, private val gzippable: Boolean, 
     @Throws(IOException::class)
     private fun serveResource(httpExchange: HttpExchange, requestPath: String) {
 
-        var t = System.currentTimeMillis() / 1000 % 60
-        val reqTime = t
+        val tid = Thread.currentThread().id
+
+        var now = System.currentTimeMillis() % 60000
+        val reqTime = now
+
+        val isHtml = requestPath.takeLast(5).run {
+            //LOGGER.info("($tid) last=$this")
+            length <= 1 || this == ".html"
+        }
+        //LOGGER.info("($tid)isHtml: $isHtml")
+
+        if (isHtml) {
+            LOGGER.info("($tid)Requested: $reqTime")
+            if (reqTime >= 56000 || reqTime <= 3000) {
+                //Thread.sleep((3000L..6000L).random())
+                Thread.sleep(3000)
+                now = System.currentTimeMillis() % 60000 // update now after sleep
+            }
+        }
 
         val reqPath = requestPath.substring(1).run {
-
             if (isEmpty()) {
-
-                if (t >= 55 || t <= 3) {
-                    Thread.sleep((3000..6000).random().toLong())
-                    t = System.currentTimeMillis() / 1000 % 60 // update t after sleep
-                }
-
-                if (t in 0..4) "index.html" else "closed.html"
+                if (now in 0..4000) "index.html" else "closed.html"
             } else replace(ServerConstant.FORWARD_DOUBLE_SLASH, ServerConstant.FORWARD_SINGLE_SLASH)
         }
 
-        val now = t
-        val tStr = if (reqTime == now) "request and process:$reqTime"
-        else "request:$reqTime, process:$now"
+        val tStr = if (reqTime == now) "request and process:${reqTime / 1000.0f}"
+        else "request:${reqTime / 1000.0f}, process:${now / 1000.0f}"
 
+        // After Testing. For the same URL, the browser will send the request after the previous request is done!!!
+        // But different URLs will be sent in parallel at the same time.
+        if (isHtml)
+            LOGGER.info("($tid)Requested Path: $requestPath, $tStr")
 
-        LOGGER.info("Requested Path: $requestPath, $tStr")
         serveFile(httpExchange, pathToRoot + reqPath)
     }
 
